@@ -1,0 +1,73 @@
+/* Add your CSS styles here */
+
+body {
+  margin-top: 10%;
+  font-family: Arial, sans-serif;
+  background-color: #ffe6e6; /* Light pink background */
+  color: #4d4d4d; /* Dark gray text */
+  text-align: center;
+}
+
+.container {
+  padding: 20px;
+}
+
+h1 {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 3em;
+  color: #ff66cc; /* Pink */
+}
+
+p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-success {
+  background-color: #ff3399; /* Pink */
+  color: white;
+}
+
+.btn-success:hover {
+  background-color: #ff1a66; /* Darker pink on hover */
+}
+
+.btn-primary {
+  background-color: #ff6699; /* Light pink */
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #ff3385; /* Darker pink on hover */
+}
+
+#random_quote {
+  font-size: 1.5em;
+  margin-bottom: 30px;
+}
+
+.love-title {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 2.5em;
+  color: #ff6666; /* Light red */
+  margin-top: 50px;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}

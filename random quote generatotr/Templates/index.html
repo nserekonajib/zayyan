@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+Random Quotes Rewritten
+{% endblock %}
+
+{% block content %}
+<div class='container text-center'>
+    <h1>Random Quotes Rewritten</h1>
+    <h1 class="love-title">Dedicated To Bint Ali</h1>
+    <button class='btn btn-success' id="new-quote">New Quote</button>
+    <a class='btn btn-primary' id='tweet' href='#' target='_blank' role='button'><i class="fa fa-twitter"></i> Tweet the Quote</a>
+    <p id='random_quote' class='lead text-center'>
+        {{ quote.quote_text }}<br>
+        {% if quote.quote_author %}
+        &dash; {{ quote.quote_author }} &dash;
+        {% endif %}
+    </p>
+    <button class='btn btn-success' >FOLLOW FOR MORE</button>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("new-quote").addEventListener("click", function() {
+        fetch("/new_quote")
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("random_quote").innerHTML = "<p id='random_quote' class='lead text-center'>" +
+                    data.quote_text + "<br/>&dash; " + data.quote_author + " &dash;</p>";
+                document.getElementById("tweet").setAttribute("href", "https://twitter.com/home/?status=" + data.quote_text +
+                    ' (' + data.quote_author + ')');
+                
+                // Add love title animation
+                const loveTitle = document.querySelector('.love-title');
+                loveTitle.classList.remove('show');
+                setTimeout(() => {
+                    loveTitle.classList.add('show');
+                }, 100);
+            });
+    });
+});
+
+</script>
+{% endblock %}
